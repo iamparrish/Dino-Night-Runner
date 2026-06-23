@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Dino Night Runner</title>
+
+    <link
+        rel="icon"
+        id="favicon">
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+    <!-- START SCREEN -->
+
+    <section
+        id="startScreen"
+        class="screen active">
+
+        <div class="logoContainer">
+
+            <div class="logoDino">
+                🦖
+            </div>
+
+            <h1 class="gameLogo">
+                DINO NIGHT RUNNER
+            </h1>
+
+            <p class="tagline">
+                Run • Jump • Survive • Conquer
+            </p>
+
+        </div>
+
+        <div class="instructionCard">
+
+            <h2>
+                How To Play
+            </h2>
+
+            <ul>
+
+                <li>
+                    ⬆ Jump
+                </li>
+
+                <li>
+                    ⬇ Duck
+                </li>
+
+                <li>
+                    P = Pause
+                </li>
+
+                <li>
+                    Collect Coins & Powerups
+                </li>
+
+                <li>
+                    Avoid Obstacles
+                </li>
+
+            </ul>
+
+            <div class="menuButtons">
+
+                <button
+                    id="startBtn"
+                    class="primaryBtn">
+
+                    Start Game
+
+                </button>
+
+                <button
+                    id="fullscreenBtn"
+                    class="secondaryBtn">
+
+                    Fullscreen
+
+                </button>
+
+            </div>
+
+            <div
+                class="highScorePreview">
+
+                High Score:
+                <span
+                    id="menuHighScore">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GAME -->
+
+    <div
+        id="gameContainer">
+
+        <!-- BACKGROUND -->
+
+        <div class="parallax">
+
+            <div class="sky"></div>
+
+            <div class="stars"></div>
+
+            <div class="sun"></div>
+
+            <div class="cloudLayer"></div>
+
+            <div class="mountainLayer"></div>
+
+            <div class="treeLayer"></div>
+
+            <div class="bushLayer"></div>
+
+        </div>
+
+        <!-- HUD -->
+
+        <div id="hud">
+
+            <div class="hudCard">
+
+                Score
+
+                <span id="score">
+                    0
+                </span>
+
+            </div>
+
+            <div class="hudCard">
+
+                High Score
+
+                <span id="highScore">
+                    0
+                </span>
+
+            </div>
+
+            <div class="hudCard">
+
+                Distance
+
+                <span id="distance">
+                    0m
+                </span>
+
+            </div>
+
+            <div class="hudCard">
+
+                Speed
+
+                <span id="speedLevel">
+                    1
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- POWERUPS -->
+
+        <div
+            id="powerupsBar">
+
+            <div
+                id="shieldUI"
+                class="powerup hidden">
+
+                🛡 Shield
+                <span></span>
+
+            </div>
+
+            <div
+                id="doubleUI"
+                class="powerup hidden">
+
+                ✨ Double
+                <span></span>
+
+            </div>
+
+            <div
+                id="magnetUI"
+                class="powerup hidden">
+
+                🧲 Magnet
+                <span></span>
+
+            </div>
+
+            <div
+                id="speedUI"
+                class="powerup hidden">
+
+                ⚡ Speed
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <!-- PAUSE BUTTON -->
+
+        <button
+            id="pauseBtn">
+
+            ⏸
+
+        </button>
+
+        <!-- CANVAS -->
+
+        <canvas
+            id="gameCanvas">
+
+        </canvas>
+
+        <!-- MOBILE CONTROLS -->
+
+        <div
+            id="mobileControls">
+
+            <button
+                id="jumpBtn">
+
+                Jump
+
+            </button>
+
+            <button
+                id="duckBtn">
+
+                Duck
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- PAUSE MENU -->
+
+    <section
+        id="pauseMenu"
+        class="screen">
+
+        <div class="dialog">
+
+            <h2>
+                Game Paused
+            </h2>
+
+            <div
+                class="menuButtons">
+
+                <button
+                    id="resumeBtn"
+                    class="primaryBtn">
+
+                    Resume
+
+                </button>
+
+                <button
+                    id="restartBtnPause"
+                    class="secondaryBtn">
+
+                    Restart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GAME OVER -->
+
+    <section
+        id="gameOverScreen"
+        class="screen">
+
+        <div
+            class="dialog gameOverDialog">
+
+            <h2>
+                Game Over
+            </h2>
+
+            <div
+                class="finalStats">
+
+                <div>
+
+                    Final Score:
+                    <span
+                        id="finalScore">
+                        0
+                    </span>
+
+                </div>
+
+                <div>
+
+                    High Score:
+                    <span
+                        id="finalHighScore">
+                        0
+                    </span>
+
+                </div>
+
+                <div>
+
+                    Distance:
+                    <span
+                        id="finalDistance">
+                        0m
+                    </span>
+
+                </div>
+
+                <div>
+
+                    Coins:
+                    <span
+                        id="finalCoins">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div
+                id="achievementList">
+
+            </div>
+
+            <div
+                class="gameOverButtons">
+
+                <button
+                    id="playAgainBtn"
+                    class="primaryBtn">
+
+                    Play Again
+
+                </button>
+
+                <button
+                    id="mainMenuBtn"
+                    class="secondaryBtn">
+
+                    Main Menu
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ACHIEVEMENT -->
+
+    <div
+        id="achievementToast">
+
+        Achievement
+
+    </div>
+
+    <script
+        src="script.js">
+
+    </script>
+
+</body>
+
+</html>
