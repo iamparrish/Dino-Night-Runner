@@ -8,13 +8,11 @@ A fast-paced endless runner set against a stunning parallax night sky. Jump over
 
 🔗 **[Play Live →](https://iamparrish.github.io/Dino-Night-Runner/)**
 
----
 
 ## 🎮 About the Game
 
 Dino Night Runner is a polished browser-based endless runner inspired by the classic dino game — but cranked up with a cinematic night-time atmosphere, layered parallax scenery, a coin economy, four unique power-ups, an achievement system, and full mobile support. The game gets progressively faster, so every run is a new challenge.
 
----
 
 ## ✨ Features
 
@@ -35,7 +33,6 @@ Dino Night Runner is a polished browser-based endless runner inspired by the cla
 - **Mobile Controls** — On-screen Jump and Duck buttons for touchscreen play
 - **Canvas-Based Rendering** — Smooth, frame-rate-aware gameplay via HTML5 Canvas
 
----
 
 ## 🚀 Getting Started
 
@@ -52,7 +49,6 @@ cd Dino-Night-Runner
 
 Open `index.html` in your browser — or play the live version at the link above.
 
----
 
 ## 🗂️ Project Structure
 
@@ -62,8 +58,6 @@ Dino-Night-Runner/
 ├── style.css       # Full styling: parallax layers, HUD cards, screens, animations
 └── script.js       # Game engine: physics, rendering, obstacles, coins, power-ups, achievements
 ```
-
----
 
 ## 🕹️ How to Play
 
@@ -93,23 +87,17 @@ Dino-Night-Runner/
 | Magnet   | 🧲   | Auto-collect nearby coins |
 | Speed    | ⚡   | Temporary speed boost |
 
----
-
 ## 🛠️ Built With
 
 - **HTML5** — Game structure, screens, HUD, and canvas element
 - **CSS3** — Parallax layers, animated backgrounds, responsive layout, UI components
 - **Vanilla JavaScript** — Game loop, physics engine, obstacle & coin generation, power-up logic, achievement system, canvas rendering
 
----
-
 ## 👤 Author
 
 **Parrish Tarak**
 - GitHub: [@iamparrish](https://github.com/iamparrish)
 - Portfolio: [parrishtarak.vercel.app](https://parrishtarak.vercel.app/)
-
----
 
 ## 🤝 Contributing
 
@@ -120,9 +108,4 @@ Have an idea for a new power-up, obstacle type, or game mode? Contributions are 
 3. Commit your changes (`git commit -m 'Add YourFeature'`)
 4. Push to the branch (`git push origin feature/YourFeature`)
 5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+6. 
