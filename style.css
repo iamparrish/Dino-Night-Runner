@@ -71,6 +71,10 @@ body{
     height:100%;
 
     z-index:5;
+
+    touch-action:none;
+    -webkit-user-select:none;
+    user-select:none;
 }
 
 /* ===================== */
@@ -572,6 +576,12 @@ body{
 
     background:
     rgba(15,23,42,.7);
+
+    touch-action:none;
+    -webkit-tap-highlight-color:transparent;
+    user-select:none;
+
+    cursor:pointer;
 }
 
 @media(max-width:768px){
