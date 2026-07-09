@@ -1817,41 +1817,115 @@ window.addEventListener(
 );
 
 /* ==========================================
-   MOBILE
+   MOBILE & TOUCH CONTROLS
 ========================================== */
 
-jumpBtn.addEventListener(
+function handleJump(e){
 
-    "touchstart",
+    e.preventDefault();
 
-    ()=>{
-
+    if(
+        game.running &&
+        !game.paused &&
+        !game.over
+    ){
         dino.jump();
     }
+}
+
+function handleDuckStart(e){
+
+    e.preventDefault();
+
+    if(
+        game.running &&
+        !game.paused &&
+        !game.over
+    ){
+        dino.duck(true);
+    }
+}
+
+function handleDuckEnd(e){
+
+    e.preventDefault();
+
+    dino.duck(false);
+}
+
+/* Jump Button */
+
+jumpBtn.addEventListener(
+    "pointerdown",
+    handleJump
 );
 
-duckBtn.addEventListener(
-
+jumpBtn.addEventListener(
     "touchstart",
+    handleJump,
+    { passive:false }
+);
 
-    ()=>{
+jumpBtn.addEventListener(
+    "mousedown",
+    handleJump
+);
 
-        dino.duck(
-            true
-        );
-    }
+/* Duck Button */
+
+duckBtn.addEventListener(
+    "pointerdown",
+    handleDuckStart
 );
 
 duckBtn.addEventListener(
+    "pointerup",
+    handleDuckEnd
+);
 
+duckBtn.addEventListener(
+    "pointercancel",
+    handleDuckEnd
+);
+
+duckBtn.addEventListener(
+    "touchstart",
+    handleDuckStart,
+    { passive:false }
+);
+
+duckBtn.addEventListener(
     "touchend",
+    handleDuckEnd,
+    { passive:false }
+);
 
-    ()=>{
+duckBtn.addEventListener(
+    "mousedown",
+    handleDuckStart
+);
 
-        dino.duck(
-            false
-        );
-    }
+duckBtn.addEventListener(
+    "mouseup",
+    handleDuckEnd
+);
+
+duckBtn.addEventListener(
+    "mouseleave",
+    handleDuckEnd
+);
+
+/* Tap anywhere on the game canvas to Jump */
+
+canvas.addEventListener(
+    "pointerdown",
+    handleJump
+);
+
+canvas.addEventListener(
+    "touchstart",
+    handleJump,
+    { passive:false }
 );
 
 /* ==========================================
